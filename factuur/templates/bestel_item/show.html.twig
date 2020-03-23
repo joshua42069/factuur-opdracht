@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BestelItem{% endblock %}
+
+{% block body %}
+    <h1>BestelItem</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bestel_item.id }}</td>
+            </tr>
+            <tr>
+                <th>Datum</th>
+                <td>{{ bestel_item.datum ? bestel_item.datum|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('bestel_item_index') }}">back to list</a>
+
+    <a href="{{ path('bestel_item_edit', {'id': bestel_item.id}) }}">edit</a>
+
+    {{ include('bestel_item/_delete_form.html.twig') }}
+{% endblock %}
